@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Email Analyser</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="back-link">← Voltar ao Portal</a>
+            <h1>Phishing Email Analyser</h1>
+            <h2>Ferramenta Educacional de Triagem de E-mails</h2>
+            <div class="privacy-notice">
+                🔒 <strong>Privacidade Total:</strong> A análise ocorre 100% localmente no seu navegador. O conteúdo do e-mail NÃO é enviado a nenhum servidor, provedor de IA ou API. Não usamos cookies ou telemetria.
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="input-section">
+            <div class="section-header">
+                <h3>Cole o E-mail Suspeito</h3>
+                <p>Você pode colar o corpo do e-mail e os cabeçalhos (headers) originais, se disponíveis.</p>
+            </div>
+            
+            <textarea id="email-input" placeholder="Cole o conteúdo do e-mail aqui...&#10;&#10;Exemplo:&#10;From: suporte@banco-falso.com&#10;Subject: AÇÃO EXIGIDA: Sua conta será suspensa!&#10;&#10;Prezado cliente, atualize seus dados no link abaixo..."></textarea>
+            
+            <div class="actions">
+                <button id="btn-analyze" class="btn-primary">Analisar E-mail</button>
+                <button id="btn-clear" class="btn-secondary">Limpar</button>
+            </div>
+
+            <div class="demo-section">
+                <h4>Carregar Exemplos Educacionais</h4>
+                <div class="demo-buttons">
+                    <button class="btn-demo" data-sample="legitimate">E-mail Legítimo</button>
+                    <button class="btn-demo" data-sample="obvious">Phishing Óbvio</button>
+                    <button class="btn-demo" data-sample="sophisticated">Phishing Sofisticado</button>
+                    <button class="btn-demo" data-sample="microsoft">Falso Microsoft 365</button>
+                    <button class="btn-demo" data-sample="delivery">Falsa Encomenda</button>
+                    <button class="btn-demo" data-sample="bec">Fatura (Estilo BEC)</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="results-section" class="results-section hidden">
+            <h3>Resultado da Triagem</h3>
+            
+            <div class="score-container">
+                <div class="score-gauge" id="score-gauge">
+                    <span id="score-value">0</span>
+                    <span class="score-label">/100</span>
+                </div>
+                <div class="score-details">
+                    <h2 id="risk-classification">Risco Desconhecido</h2>
+                    <p id="risk-description">Aguardando análise.</p>
+                </div>
+            </div>
+
+            <div class="findings-container">
+                <h4>Indicadores Encontrados (Por que essa pontuação?)</h4>
+                <ul id="findings-list" class="findings-list">
+                    <!-- Sinais de alerta serão injetados aqui -->
+                </ul>
+            </div>
+
+            <div class="recommendations-container">
+                <h4>Recomendações Práticas</h4>
+                <ul id="recommendations-list">
+                    <!-- Recomendações serão injetadas aqui -->
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="container">
+        <p><strong>⚠️ Aviso Importante:</strong> Esta é uma ferramenta educacional de triagem, criada para identificar sinais de alerta. Ela NÃO pode determinar de forma definitiva se um e-mail é malicioso. Nunca clique em links suspeitos ou abra anexos "apenas para testar". Sempre verifique informações importantes acessando o site oficial da organização manualmente.</p>
+    </footer>
+
+    <script src="emails.js?v=2"></script>
+    <script src="script.js?v=2"></script>
+</body>
+</html>

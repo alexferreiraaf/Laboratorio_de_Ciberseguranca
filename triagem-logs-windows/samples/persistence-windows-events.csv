@@ -1,0 +1,4 @@
+"Level","Date and Time","Source","Event ID","Task Category","User","Computer"
+"Information","10/10/2026 02:00:00","Microsoft-Windows-Security-Auditing","4624","Logon","AdminMaster","SRV-DC"
+"Information","10/10/2026 02:01:00","Microsoft-Windows-Security-Auditing","4720","User Account Management","temp_service_admin","SRV-DC"
+"Information","10/10/2026 02:02:00","Microsoft-Windows-Security-Auditing","4732","Security Group Management","temp_service_admin","SRV-DC"

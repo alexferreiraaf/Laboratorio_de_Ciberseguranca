@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferramenta de Triagem de Tráfego de Rede</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="back-link">← Voltar ao Portal</a>
+            <h1>Triagem de Rede</h1>
+            <h2>Ferramenta de Triagem de Tráfego de Rede</h2>
+            <div class="privacy-notice">
+                🔒 Os dados da sua captura de pacotes são analisados localmente no seu navegador e não são enviados para lugar nenhum.
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="upload-section">
+            <h3>Carregar CSV do Wireshark</h3>
+            <div class="upload-area" id="upload-area">
+                <p>Arraste e solte o arquivo CSV aqui ou</p>
+                <input type="file" id="file-input" accept=".csv" />
+            </div>
+            
+            <div class="demo-buttons">
+                <button id="btn-normal">Carregar Amostra Normal</button>
+                <button id="btn-suspicious">Carregar Amostra Suspeita</button>
+                <button id="btn-mixed">Carregar Laboratório SOC Misto</button>
+            </div>
+            <div id="upload-status" class="status-message"></div>
+        </section>
+
+        <div id="dashboard" class="dashboard hidden">
+            <div class="dashboard-header">
+                <h3>Visão Geral da Rede</h3>
+                <span id="demo-label" class="demo-label hidden">Dados de Demonstração</span>
+            </div>
+            
+            <div class="summary-cards">
+                <div class="card">
+                    <h4>Total de Pacotes</h4>
+                    <span id="total-packets">0</span>
+                </div>
+                <div class="card">
+                    <h4>Origens Únicas</h4>
+                    <span id="unique-sources">0</span>
+                </div>
+                <div class="card">
+                    <h4>Destinos Únicos</h4>
+                    <span id="unique-destinations">0</span>
+                </div>
+            </div>
+
+            <!-- Dashboard sections -->
+            <div class="dashboard-details">
+                <div class="details-column">
+                    <h4>Principais Hosts de Origem</h4>
+                    <ul id="top-sources"></ul>
+                </div>
+                <div class="details-column">
+                    <h4>Principais Destinos</h4>
+                    <ul id="top-destinations"></ul>
+                </div>
+                <div class="details-column">
+                    <h4>Distribuição de Protocolos</h4>
+                    <ul id="protocol-distribution"></ul>
+                </div>
+            </div>
+            
+            <section class="alerts-section">
+                <h3>Alertas de Detecção</h3>
+                <div id="alerts-container"></div>
+            </section>
+        </div>
+
+        <section class="educational-section">
+            <h3>Como Pensar Como um Analista</h3>
+            <ol>
+                <li><strong>Observe o comportamento incomum.</strong></li>
+                <li><strong>Identifique a origem e o destino.</strong></li>
+                <li><strong>Determine qual protocolo está envolvido.</strong></li>
+                <li><strong>Estabeleça se a atividade é esperada.</strong></li>
+                <li><strong>Procure indicadores de apoio.</strong></li>
+                <li><strong>Correlacione com outras telemetrias de segurança.</strong></li>
+                <li><strong>Decida se investigação adicional é necessária.</strong></li>
+            </ol>
+            <p><em>"Uma anomalia é um ponto de partida para investigação, não prova de comprometimento."</em></p>
+        </section>
+        
+        <section class="instructions-section">
+            <h3>Instruções do Wireshark</h3>
+            <ol>
+                <li>Abra o Wireshark.</li>
+                <li>Capture tráfego em um ambiente autorizado.</li>
+                <li>Pare a captura.</li>
+                <li>Vá em <em>File > Export Packet Dissections > As CSV...</em></li>
+                <li>Carregue o CSV nesta ferramenta.</li>
+            </ol>
+            <p class="warning">Analise apenas tráfego de sistemas e redes que você possui ou está autorizado a monitorar.</p>
+        </section>
+
+        <section class="settings-section">
+            <h3>Configurações de Limites (Fins Educacionais)</h3>
+            <p class="settings-disclaimer">Os limites devem ser ajustados com base no ambiente. Um servidor movimentado pode gerar legitimamente milhares de pacotes, enquanto a mesma atividade de outro endpoint pode merecer investigação.</p>
+            <div class="settings-grid">
+                <label>Pacotes por origem: <input type="number" id="setting-packet-volume" value="50"></label>
+                <label>Destinos únicos: <input type="number" id="setting-unique-destinations" value="10"></label>
+                <label>Portas únicas: <input type="number" id="setting-unique-ports" value="10"></label>
+                <label>Pacotes ICMP: <input type="number" id="setting-icmp" value="30"></label>
+                <label>Pacotes DNS: <input type="number" id="setting-dns" value="30"></label>
+                <label>Pacotes repetidos origem-destino: <input type="number" id="setting-repeated-comm" value="40"></label>
+            </div>
+            <button id="btn-reset-settings">Resetar Padrões</button>
+        </section>
+    </main>
+
+    <footer>
+        <p><strong>Aviso:</strong> Ferramenta educacional de triagem de rede. Alertas indicam atividade que vale a pena investigar e não provam comportamento malicioso.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
