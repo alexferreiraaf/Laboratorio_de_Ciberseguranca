@@ -8,6 +8,19 @@
     --severity-low: #3fb950;
     --severity-medium: #d29922;
     --severity-high: #f85149;
+    /* Variaveis do sistema de temas */
+    --heading-color: #ffffff;
+    --muted-color: #8b949e;
+    --surface-2: #21262d;
+    --surface-3: #30363d;
+    --code-bg: #1f2428;
+    --privacy-bg: #093414;
+    --privacy-text: #3fb950;
+    --privacy-border: #238636;
+    --btn-primary-bg: #238636;
+    --btn-primary-hover: #2ea043;
+    --on-color: #000000;
+    --shadow: rgba(0, 0, 0, 0.5);
 }
 
 body {
@@ -38,14 +51,14 @@ header {
 }
 
 h1, h2, h3, h4 {
-    color: #ffffff;
+    color: var(--heading-color);
     margin-top: 0;
 }
 
 .privacy-notice {
-    background-color: #093414;
-    color: #3fb950;
-    border: 1px solid #238636;
+    background-color: var(--privacy-bg);
+    color: var(--privacy-text);
+    border: 1px solid var(--privacy-border);
     padding: 10px;
     border-radius: 6px;
     display: inline-block;
@@ -83,8 +96,8 @@ section, .dashboard {
 }
 
 button {
-    background-color: #21262d;
-    color: #c9d1d9;
+    background-color: var(--surface-2);
+    color: var(--text-color);
     border: 1px solid var(--border-color);
     padding: 8px 16px;
     border-radius: 6px;
@@ -93,7 +106,7 @@ button {
 }
 
 button:hover {
-    background-color: #30363d;
+    background-color: var(--surface-3);
 }
 
 .status-message {
@@ -115,7 +128,7 @@ button:hover {
 
 .demo-label {
     background-color: var(--severity-medium);
-    color: #000;
+    color: var(--on-color);
     padding: 2px 8px;
     border-radius: 12px;
     font-size: 0.8em;
@@ -210,6 +223,41 @@ ul li:last-child {
 footer {
     text-align: center;
     font-size: 0.8em;
-    color: #8b949e;
+    color: var(--muted-color);
     margin-top: 40px;
+}
+
+/* ===== Tema claro (ativado pelo botÃ£o de tema) ===== */
+:root[data-theme="light"] {
+    --bg-color: #f6f8fa;
+    --panel-bg: #ffffff;
+    --card-bg: #ffffff;
+    --text-color: #24292f;
+    --accent-color: #0969da;
+    --border-color: #d0d7de;
+    --hover-bg: #eaeef2;
+
+    --status-active: #1a7f37;
+    --status-soon: #9a6700;
+    --severity-info: #0969da;
+    --severity-low: #1a7f37;
+    --severity-medium: #9a6700;
+    --severity-high: #cf222e;
+    --risk-low: #1a7f37;
+    --risk-medium: #9a6700;
+    --risk-high: #cf222e;
+    --risk-critical: #82071e;
+
+    --heading-color: #1f2328;
+    --muted-color: #57606a;
+    --surface-2: #f3f4f6;
+    --surface-3: #e1e4e8;
+    --code-bg: #f6f8fa;
+    --privacy-bg: #dafbe1;
+    --privacy-text: #116329;
+    --privacy-border: #4ac26b;
+    --btn-primary-bg: #1f883d;
+    --btn-primary-hover: #1a7f37;
+    --on-color: #ffffff;
+    --shadow: rgba(140, 149, 159, 0.35);
 }

@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+﻿document.addEventListener('DOMContentLoaded', () => {
     const fileInput = document.getElementById('file-input');
     const uploadArea = document.getElementById('upload-area');
     const statusMessage = document.getElementById('upload-status');
@@ -321,7 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="alert-text-block" style="border-top:1px dashed var(--border-color); padding-top:10px;">
                     <h5>Investigação Sugerida (Mentalidade SOC):</h5>
-                    <ul style="margin:5px 0 0 0; padding-left:20px; font-size:0.9em; color:#c9d1d9;">${invHtml}</ul>
+                    <ul style="margin:5px 0 0 0; padding-left:20px; font-size:0.9em; color:var(--text-color);">${invHtml}</ul>
                 </div>
             `;
             alertsContainer.appendChild(item);
